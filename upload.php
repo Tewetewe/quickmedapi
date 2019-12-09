@@ -17,9 +17,9 @@
 		$path = "imageupload/".$random.".png";
 		
 		// sesuiakan ip address laptop/pc atau URL server
-		$actualpath = "https://quickmedapi.000webhostapp.com/$path";
+		$actualpath = "http://https://quickmedapi.000webhostapp.com/$path";
 		
-		$query = mysqli_query($con, "INSERT INTO tb_user (image,nama) VALUES ('$actualpath','$name')");
+		$query = mysqli_query($con, "INSERT INTO tb_user (photo,nama) VALUES ('$actualpath','$name')");
 		
 		if ($query){
 			file_put_contents($path,base64_decode($image));

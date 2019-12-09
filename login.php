@@ -13,7 +13,7 @@ class usr{}
 		die(json_encode($response));
 	}
 	
-	$query = mysqli_query($con, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
+	$query = mysqli_query($con, "SELECT * FROM tb_user WHERE username='$username' AND password='$password' AND user_role = 1");
 	
 	$row = mysqli_fetch_array($query);
 	
