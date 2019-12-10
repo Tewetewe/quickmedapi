@@ -1,7 +1,7 @@
 <?php 
 	include "koneksi.php";
 	
-	$query = mysql_query("SELECT * FROM tb_user WHERE user_role = 2 ORDER BY nama ASC");
+	$query = mysql_query("SELECT * FROM tb_user WHERE role_id = 2 ORDER BY nama ASC");
 	
 	$json = array();
 	

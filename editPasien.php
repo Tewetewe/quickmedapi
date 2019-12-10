@@ -11,7 +11,7 @@
 		$response->message = "Error Mengambil Data"; 
 		die(json_encode($response));
 	} else {
-		$query 	= mysql_query("SELECT * FROM biodata WHERE user_id='".$id."'");
+		$query 	= mysql_query("SELECT * FROM tb_user WHERE user_id='".$id."'");
 		$row 	= mysql_fetch_array($query);
 		
 		if (!empty($row)) {

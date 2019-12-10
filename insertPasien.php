@@ -19,7 +19,7 @@
 		$response->message = "Kolom isian tidak boleh kosong"; 
 		die(json_encode($response));
 	} else {
-		$query = mysql_query("INSERT INTO tb_user (user_id,nama,tgl_lahir,alamat,email,username,password,goldar,user_role) VALUES(0,'".$nama."','".$tgl_lahir."','".$alamat."','".$email."','".$username."', '".$password."', '".$goldar."', 2)");
+		$query = mysql_query("INSERT INTO tb_user (user_id,nama,tgl_lahir,alamat,email,username,password,goldar,role_id) VALUES(0,'".$nama."','".$tgl_lahir."','".$alamat."','".$email."','".$username."', '".$password."', '".$goldar."', 2)");
 		
 		if ($query) {
 			$response = new emp();
