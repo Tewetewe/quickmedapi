@@ -1,7 +1,7 @@
 <?php
 	include "koneksi.php";
 	
-	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	$id 	= $_POST['id'];
 	
 	class emp{}
 	
@@ -11,15 +11,20 @@
 		$response->message = "Error Mengambil Data"; 
 		die(json_encode($response));
 	} else {
-		$query 	= mysqli_query($con, "SELECT * FROM kontak WHERE id='".$id."'");
-		$row 	= mysqli_fetch_array($query);
+		$query 	= mysql_query("SELECT * FROM biodata WHERE user_id='".$id."'");
+		$row 	= mysql_fetch_array($query);
 		
 		if (!empty($row)) {
 			$response = new emp();
 			$response->success = 1;
-			$response->id = $row["id"];
+			$response->id = $row["user_id"];
 			$response->nama = $row["nama"];
-			$response->alamat = $row["alamat"];
+            $response->tgl_lahir = $row["tgl_lahir"];
+            $response->alamat = $row["alamat"];
+			$response->username = $row["username"];
+            $response->password = $row["password"];
+            $response->goldar = $row["goldar"];
+            
 			die(json_encode($response));
 		} else{ 
 			$response = new emp();

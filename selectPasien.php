@@ -1,12 +1,11 @@
-
 <?php 
 	include "koneksi.php";
 	
-	$query = mysqli_query($con, "SELECT * FROM kontak");
+	$query = mysql_query("SELECT * FROM tb_user WHERE user_role = 2 ORDER BY nama ASC");
 	
 	$json = array();
 	
-	while($row = mysqli_fetch_assoc($query)){
+	while($row = mysql_fetch_assoc($query)){
 		$json[] = $row;
 	}
 	

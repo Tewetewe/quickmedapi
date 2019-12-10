@@ -1,8 +1,7 @@
-  
 <?php
 	include "koneksi.php";
 	
-	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	$id 	= $_POST['id'];
 	
 	class emp{}
 	
@@ -12,7 +11,7 @@
 		$response->message = "Error hapus Data"; 
 		die(json_encode($response));
 	} else {
-		$query = mysql_query("DELETE FROM kontak WHERE id='".$id."'");
+		$query = mysql_query("DELETE FROM tb_user WHERE user_id='".$id."'");
 		
 		if ($query) {
 			$response = new emp();

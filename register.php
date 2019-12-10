@@ -41,7 +41,7 @@ else if ((empty($password))) {
     	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_user WHERE username='".$username."'"));
 
     	if ($num_rows == 0){
-    		$query = mysqli_query($con, "INSERT INTO tb_user (user_id, username, email, password, user_role) VALUES(0,'".$username."','".$email."','".$password."',1)");
+    		$query = mysqli_query($con, "INSERT INTO tb_user (username, email, password, role_id) VALUES('".$username."','".$email."','".$password."',1)");
 
     		if ($query){
     			$response = new usr();
