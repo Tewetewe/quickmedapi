@@ -1,5 +1,5 @@
 <?php
-	include "koneksi.php";
+	include_once "koneksi.php";
 	
 	$id 	= $_POST['id'];
 	
@@ -11,8 +11,8 @@
 		$response->message = "Error Mengambil Data"; 
 		die(json_encode($response));
 	} else {
-		$query 	= mysql_query("SELECT * FROM tb_user WHERE user_id='".$id."'");
-		$row 	= mysql_fetch_array($query);
+		$query 	= mysqli_query($con, "SELECT * FROM tb_user WHERE user_id='".$id."'");
+		$row 	= mysqli_fetch_array($query);
 		
 		if (!empty($row)) {
 			$response = new emp();
@@ -33,4 +33,5 @@
 			die(json_encode($response)); 
 		}	
 	}
+	mysqli_close($con);
 ?>

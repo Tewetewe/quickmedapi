@@ -1,5 +1,5 @@
 <?php
-	include "koneksi.php";
+	include_once "koneksi.php";
 	
 	$id 	= $_POST['id'];
 	
@@ -11,7 +11,7 @@
 		$response->message = "Error hapus Data"; 
 		die(json_encode($response));
 	} else {
-		$query = mysql_query("DELETE FROM tb_user WHERE user_id='".$id."'");
+		$query = mysqli_query($con, "DELETE FROM tb_user WHERE user_id='".$id."'");
 		
 		if ($query) {
 			$response = new emp();
@@ -25,4 +25,5 @@
 			die(json_encode($response)); 
 		}	
 	}
+	mysqli_close($con);
 ?>

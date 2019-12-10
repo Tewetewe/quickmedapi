@@ -1,5 +1,5 @@
 <?php
-	include "koneksi.php";
+	include_once "koneksi.php";
 	
 	$nama 	= $_POST['nama'];
     $tgl_lahir = $_POST['tgl_lahir'];
@@ -19,7 +19,7 @@
 		$response->message = "Kolom isian tidak boleh kosong"; 
 		die(json_encode($response));
 	} else {
-		$query = mysql_query("INSERT INTO tb_user (user_id,nama,tgl_lahir,alamat,email,username,password,goldar,role_id) VALUES(0,'".$nama."','".$tgl_lahir."','".$alamat."','".$email."','".$username."', '".$password."', '".$goldar."', 2)");
+		$query = mysqli_query($con, "INSERT INTO tb_user (user_id,nama,tgl_lahir,alamat,email,username,password,goldar,role_id) VALUES(0,'".$nama."','".$tgl_lahir."','".$alamat."','".$email."','".$username."', '".$password."', '".$goldar."', 2)");
 		
 		if ($query) {
 			$response = new emp();
@@ -33,4 +33,5 @@
 			die(json_encode($response)); 
 		}	
 	}
+	mysqli_close($con);
 ?>
