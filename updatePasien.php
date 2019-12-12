@@ -18,7 +18,7 @@
 		$response->message = "Kolom isian tidak boleh kosong"; 
 		die(json_encode($response));
 	} else {
-		$query = mysqli_query($con, "UPDATE tb_user SET nama='".$nama."', tgl_lahir='".$tgl_lahir."',  email='".$email."', alamat='".$alamat."', username='".$nama."', password='".$password."',goldar ='".$goldar."', WHERE user_id='".$id."'");
+		$query = mysqli_query($con, "UPDATE tb_user SET nama='".$nama."', tgl_lahir='".$tgl_lahir."',  email='".$email."', alamat='".$alamat."', username='".$nama."', password='".$password."',goldar ='".$goldar."' WHERE user_id='".$id."'");
 		
 		if ($query) {
 			$response = new emp();

@@ -17,10 +17,11 @@
 		if (!empty($row)) {
 			$response = new emp();
 			$response->success = 1;
-			$response->id = $row["user_id"];
+			$response->user_id = $row["user_id"];
 			$response->nama = $row["nama"];
             $response->tgl_lahir = $row["tgl_lahir"];
-            $response->alamat = $row["alamat"];
+			$response->alamat = $row["alamat"];
+			$response->email = $row["email"];
 			$response->username = $row["username"];
             $response->password = $row["password"];
             $response->goldar = $row["goldar"];
