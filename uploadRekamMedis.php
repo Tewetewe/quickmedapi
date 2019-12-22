@@ -6,6 +6,7 @@
 	$image = $_POST['image'];
 	$diagnosa = $_POST['diagnosa'];
 	$anjuran = $_POST['anjuran'];
+	$pendaftaran_id = $_POST['pendaftaran_id'];
 	
 	if (empty($diagnosa)) { 
 		$response = new emp();
@@ -24,9 +25,9 @@
 		$path = "imageupload/".$random.".png";
 		
 		// sesuiakan ip address laptop/pc atau URL server
-		$actualpath = "http://https://quickmedapi.000webhostapp.com/$path";
+		$actualpath = "https://quickmedapi.000webhostapp.com/$path";
 		
-		$query = mysqli_query($con, "INSERT INTO tb_rekam_medis (diagnosa, anjuran, photo) VALUES ('$diagnosa', '$anjuran','$actualpath')");
+		$query = mysqli_query($con, "INSERT INTO tb_rekam_medis (pendaftaran_id, diagnosa, anjuran, photo) VALUES ('$pendaftaran_id','$diagnosa', '$anjuran','$actualpath')");
 		
 		if ($query){
 			file_put_contents($path,base64_decode($image));
@@ -41,7 +42,7 @@
 			$response->message = "Error Upload image";
 			die(json_encode($response)); 
 		}
-	}	
+	}		
 	
 	// fungsi random string pada gambar untuk menghindari nama file yang sama
 	function random_word($id = 20){
